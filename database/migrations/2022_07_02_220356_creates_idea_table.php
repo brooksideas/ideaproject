@@ -1,4 +1,5 @@
 <?php
+
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -15,11 +16,11 @@ return new class extends Migration
     {
         Schema::create('ideas', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->longText('description');
-            $table->double('goal', 5 , 2);
-            $table->foreignId('idea_owner');
-            $table->foreignIdFor(User::class);
+            $table->string('name')->default('');
+            $table->string('description')->default('')->nullable();
+            $table->double('goal', 6, 2)->default(0)->nullable();
+            $table->foreignId('idea_owner')->default(0)->nullable();
+            $table->foreignIdFor(User::class)->default(0)->nullable();
             $table->timestamps();
         });
     }

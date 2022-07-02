@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::get('/index', 'IdeaController@index');
+Route::post('/index', 'IdeaController@save');
