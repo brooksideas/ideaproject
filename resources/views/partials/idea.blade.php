@@ -11,7 +11,27 @@
 <body>
 
     <h1>Welcome to Idea Store</h1>
-    <p>{{ $var }} </p>
+
+    <h3>List of Ideas</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Goal</th>
+            <th>Owner Id</th>
+        </tr>
+
+        @foreach ($ideas as $item)
+            <tr>
+                <td>{{ $item->name }}</td>
+                <td>{{ $item->description }}</td>
+                <td>{{ $item->goal }}</td>
+                <td>{{ $item->idea_owner }}</td>
+            </tr>
+        @endforeach
+
+
+    </table>
 </body>
 
 </html>

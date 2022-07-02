@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use \App\Models\Idea;
 use Illuminate\Http\Request;
 
 class IdeaController extends Controller
 {
     public function index(){
-        $var = 'Hello from Inside';
-        return view('partials.idea' , compact('var'));
+        $ideas = Idea::all();
+
+        // dd($ideas);
+        return view('partials.idea' , compact('ideas'));
     }
 }
