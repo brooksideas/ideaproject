@@ -17,7 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/index', function () {
-    $var = 'Hello from Inside';
-    return view('partials.idea' , compact('var'));
-});
+Route::get('/index', 'IdeaController@index');
