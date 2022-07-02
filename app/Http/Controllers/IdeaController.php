@@ -18,15 +18,15 @@ class IdeaController extends Controller
     public function save()
     {
         $idea = new Idea();
-         
-        $data = request()->validate(['name' => 'required|min:5|max:20']);
 
-        $idea->name = request('name');
-        $idea->description = request('description');
-        $idea->goal = request('goal');
-        $idea->idea_owner = request('idea_owner');
+        $payload = request()->validate([
+            'name' => 'required|min:5|max:20',
+            'description' => '',
+            'goal' => '',
+            'idea_owner' => ''
+        ]);
 
-        $idea->save();
+        $idea::create($payload);
 
         return redirect()->back();
     }
