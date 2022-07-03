@@ -3,15 +3,31 @@
 namespace App\Http\Controllers;
 
 use \App\Models\Idea;
+use \App\Repositories\IdeaRepository;
 use Illuminate\Http\Request;
 
 class IdeaController extends Controller
 {
+    /**
+     *@var \App\Repositories\IdeaRepository
+     */
+
+
+    private $ideaRepository;
+
+    // Constructor
+    public function __construct(IdeaRepository $ideaRepository)
+    {
+        $this->ideaRepository = $ideaRepository;
+    }
 
     // GET
     public function index()
     {
-        $ideas = Idea::all();
+        $ideas = $this->ideaRepository->all();
+
+        // $ideas = Idea::all();
+
         return view('partials.idea', compact('ideas'));
     }
 

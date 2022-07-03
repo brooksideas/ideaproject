@@ -20,13 +20,12 @@
             <th>Goal</th>
             <th>Owner Id</th>
         </tr>
-
         @forelse ($ideas as $item)
             <tr>
-                <td> <a href="/ideas/{{$item->id}}">{{ $item->name }}</a> </td>
-                <td>{{ $item->description }}</td>
-                <td>{{ $item->goal }}</td>
-                <td>{{ $item->idea_owner }}</td>
+                <td> <a href="/ideas/{{ $ideas[$loop->index]['id'] }}">{{ $ideas[$loop->index]['name'] }}</a> </td>
+                <td>{{ $ideas[$loop->index]['description'] }}</td>
+                <td>{{ $ideas[$loop->index]['goal'] }}</td>
+                <td>{{ $ideas[$loop->index]['idea_owner'] }}</td>
             </tr>
         @empty
             <tr>

@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('name')->default('');
             $table->string('description')->default('')->nullable();
             $table->double('goal', 6, 2)->default(0)->nullable();
-            $table->foreignId('idea_owner')->default(0)->nullable();
-            $table->foreignIdFor(User::class)->default(0)->nullable();
+            $table->unsignedBigInteger('idea_owner');
+            $table->foreign('idea_owner')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
