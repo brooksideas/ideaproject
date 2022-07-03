@@ -16,7 +16,7 @@ class IdeaController extends Controller
     }
 
     //GET/1
-    public function show(\App\Models\Idea $idea)
+    public function show(Idea $idea)
     {
 
         return view('partials.show', compact('idea'));
@@ -41,15 +41,15 @@ class IdeaController extends Controller
 
     // EDIT 
 
-    public function edit(\App\Models\Idea $idea)
+    public function edit(Idea $idea)
     {
         return view('partials.edit', compact('idea'));
     }
 
     // PATCH
-    public function update(\App\Models\Idea $idea)
+    public function update(Idea $idea)
     {
- 
+
         $payload = request()->validate([
             'name' => 'required|min:5|max:20',
             'description' => 'required',
@@ -58,6 +58,14 @@ class IdeaController extends Controller
         ]);
 
         $idea->update($payload);
+
+        return redirect('/ideas');
+    }
+
+    // DELETE
+    public function delete(Idea $idea)
+    {
+        $idea->delete();
 
         return redirect('/ideas');
     }

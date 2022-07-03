@@ -22,4 +22,5 @@ Route::get('/ideas/{idea}', 'IdeaController@show');
 Route::post('/ideas', 'IdeaController@save');
 Route::get('/ideas/{idea}/edit', 'IdeaController@edit');
 Route::patch('/ideas/{idea}', 'IdeaController@update');
+Route::delete('/ideas/{idea}', 'IdeaController@delete');
 

@@ -19,8 +19,16 @@
         <li> Idea Owner : {{ $idea->idea_owner }}</li>
     </ul>
 
-    <div>
+    <div style="display: flex;">
         <a href="/ideas/{{ $idea->id }}/edit"> Edit</a>
+
+        <div style="margin-left: 16px;">
+            <form action="/ideas/{{ $idea->id }}" method="post">
+                @method('DELETE')
+                @csrf
+                <button>Delete</button>
+            </form>
+        </div>
     </div>
 </body>
 
