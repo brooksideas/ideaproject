@@ -20,4 +20,6 @@ Route::get('/', function () {
 Route::get('/ideas', 'IdeaController@index');
 Route::get('/ideas/{idea}', 'IdeaController@show');
 Route::post('/ideas', 'IdeaController@save');
+Route::get('/ideas/{idea}/edit', 'IdeaController@edit');
+Route::patch('/ideas/{idea}', 'IdeaController@update');
 

@@ -18,6 +18,10 @@
         <li> Goal : {{ $idea->goal }}</li>
         <li> Idea Owner : {{ $idea->idea_owner }}</li>
     </ul>
+
+    <div>
+        <a href="/ideas/{{ $idea->id }}/edit"> Edit</a>
+    </div>
 </body>
 
 </html>
