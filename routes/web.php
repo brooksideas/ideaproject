@@ -17,5 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/index', 'IdeaController@index');
-Route::post('/index', 'IdeaController@save');
+Route::get('/ideas', 'IdeaController@index');
+Route::get('/ideas/{idea}', 'IdeaController@show');
+Route::post('/ideas', 'IdeaController@save');
+

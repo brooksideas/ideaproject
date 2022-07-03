@@ -23,7 +23,7 @@
 
         @forelse ($ideas as $item)
             <tr>
-                <td>{{ $item->name }}</td>
+                <td> <a href="/ideas/{{$item->id}}">{{ $item->name }}</a> </td>
                 <td>{{ $item->description }}</td>
                 <td>{{ $item->goal }}</td>
                 <td>{{ $item->idea_owner }}</td>
@@ -39,15 +39,15 @@
 
     <hr>
     <h3>Add More Ideas</h3>
-    <form action="/index" method="post">
+    <form action="/ideas" method="post">
         @csrf
         <input type="text" name="name" placeholder="idea name" style="display: block; margin-bottom: 16px;">
-       <div style="color: red;">
-        @error('name')
-            {{ $message }}
-        @enderror
-       </div>
-        
+        <div style="color: red;">
+            @error('name')
+                {{ $message }}
+            @enderror
+        </div>
+
         <textarea name="description" rows="10" cols="30" style="display: block; margin-bottom: 16px;"
             placeholder="Idea Description"></textarea>
         <input type="number" name="goal" placeholder="goal" style="display: block; margin-bottom: 16px;">

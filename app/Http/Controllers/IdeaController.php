@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class IdeaController extends Controller
 {
+    
     // GET
     public function index()
     {
@@ -14,10 +15,17 @@ class IdeaController extends Controller
         return view('partials.idea', compact('ideas'));
     }
 
+    //GET/1
+    public function show(\App\Models\Idea $idea){
+
+        return view('partials.show' , compact('idea'));
+
+    }
+
     // POST
     public function save()
     {
-        $idea = new Idea();
+        $ideaInstance = new Idea();
 
         $payload = request()->validate([
             'name' => 'required|min:5|max:20',
@@ -26,7 +34,7 @@ class IdeaController extends Controller
             'idea_owner' => ''
         ]);
 
-        $idea::create($payload);
+        $ideaInstance::create($payload);
 
         return redirect()->back();
     }
